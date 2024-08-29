@@ -4,11 +4,14 @@ import numpy as np
 
 
 def parse_model_cfg(path):
+    print("1", path)
     # Parse the yolo *.cfg file and return module definitions path may be 'cfg/yolov3.cfg', 'yolov3.cfg', or 'yolov3'
     if not path.endswith('.cfg'):  # add .cfg suffix if omitted
         path += '.cfg'
     if not os.path.exists(path) and os.path.exists('cfg' + os.sep + path):  # add cfg/ prefix if omitted
         path = 'cfg' + os.sep + path
+    
+    print("2", path)
 
     with open(path, 'r') as f:
         lines = f.read().split('\n')
